@@ -7,7 +7,8 @@ public:
             if (ss[i] != '#'){
                 ss[j] = ss[i];
                 j++;
-            } else {
+            } else if (j > 0){
+            // } else {
                 j--;
             }
         }
