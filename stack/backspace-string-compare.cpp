@@ -16,8 +16,6 @@ public:
     }
 
     bool backspaceCompare(string s, string t) {
-        cout << newString(s) << endl;
-        cout << newString(t) << endl; 
         return newString(s) == newString(t);
     }
 };
