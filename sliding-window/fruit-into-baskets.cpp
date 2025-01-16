@@ -7,11 +7,11 @@ public:
         for(int j = 0; j < fruits.size(); j++) {
             basket[fruits[j]]++;
             while(basket.size() > 2) {
-                basket[fruits[i]]--; //why???
+                basket[fruits[i]]--;
                 if(basket[fruits[i]] == 0) {
                     basket.erase(fruits[i]);
-                    i++;
                 }
+                i++;
             }
             k = max(j - i + 1, k);
         }
