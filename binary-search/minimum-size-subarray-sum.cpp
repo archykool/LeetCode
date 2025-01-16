@@ -5,9 +5,9 @@ public:
         int res = INT32_MAX;
         for(int i = 0; i < nums.size(); i++) {
             sum = 0;
-            for(int j = i; i < nums.size(); j++){
+            for(int j = i; j < nums.size(); j++){
                 sum += nums[j];
-                if(sum > target){
+                if(sum >= target){
                     k = j - i + 1;
                     res = res < k ? res : k;
                     break;
