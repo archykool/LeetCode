@@ -1,17 +1,16 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int k = 0, sum = 0;
+        int sum = 0, k = 0;
         int res = INT32_MAX;
-        for(int i = 0; i < nums.size(); i++) {
-            sum = 0;
-            for(int j = i; j < nums.size(); j++){
-                sum += nums[j];
-                if(sum >= target){
-                    k = j - i + 1;
-                    res = res < k ? res : k;
-                    break;
-                }
+        int i = 0;
+        for(int j = 0; j < nums.size(); j++){
+            sum += nums[j];
+            while (sum >= target) {
+                k = j - i + 1;
+                res = res < k ? res : k;
+                sum -= nums[i]; // key of slide window
+                i++;
             }
         }
         return res == INT32_MAX ? 0 : res;
