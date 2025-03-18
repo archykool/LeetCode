@@ -11,7 +11,7 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-        if((!head) || (!head->next->next)) return; 
+        if((!head) || (!head->next->next))  return;
 
         stack<ListNode*> my_stack;
         ListNode* ptr = head;
