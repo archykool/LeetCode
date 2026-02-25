@@ -11,17 +11,25 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        if (head == nullptr) {
-            return nullptr;
+        // set a dummy node
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        ListNode* cur = dummyHead;
+
+        // remove the target element
+        while(cur->next != NULL){
+            if(cur->next->val != val){
+                cur = cur->next;
+            }else{
+                ListNode* tmp = cur->next;
+                cur->next = cur->next->next;
+                delete tmp;
+            }
         }
 
-        if (head->val == val) {
-            ListNode* newHead = removeElements(head->next, val);
-            delete head;
-            return newHead;
-        } else {
-            head->next = removeElements(head->next, val);
-            return head;
-        }
+        head = dummyHead->next;
+        delete dummyHead;
+        return head;
+        
     }
 };
