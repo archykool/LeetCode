@@ -7,4 +7,5 @@ SELECT
 FROM Employees AS mgr
 JOIN Employees AS emp
 ON emp.reports_to = mgr.employee_id
-GROUP BY mgr.employee_id;
+GROUP BY mgr.employee_id
+ORDER BY mgr.employee_id ASC;
